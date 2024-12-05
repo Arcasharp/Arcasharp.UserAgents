@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arcasharp.UserAgents", "Arcasharp.UserAgents\Arcasharp.UserAgents.csproj", "{BB54540F-5FF0-47EB-BB51-8331B129C147}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arcasharp.UserAgents.SourceGenerator", "Arcasharp.UserAgents.SourceGenerator\Arcasharp.UserAgents.SourceGenerator.csproj", "{CA01759E-598B-4295-A30D-56A61DA89064}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arcasharp.UserAgents.IntegrationTests", "Arcasharp.UserAgents.IntegrationTests\Arcasharp.UserAgents.IntegrationTests.csproj", "{C69FED2A-079C-461E-9F1E-59E5363485EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB54540F-5FF0-47EB-BB51-8331B129C147}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB54540F-5FF0-47EB-BB51-8331B129C147}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB54540F-5FF0-47EB-BB51-8331B129C147}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB54540F-5FF0-47EB-BB51-8331B129C147}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA01759E-598B-4295-A30D-56A61DA89064}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA01759E-598B-4295-A30D-56A61DA89064}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA01759E-598B-4295-A30D-56A61DA89064}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA01759E-598B-4295-A30D-56A61DA89064}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C69FED2A-079C-461E-9F1E-59E5363485EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C69FED2A-079C-461E-9F1E-59E5363485EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C69FED2A-079C-461E-9F1E-59E5363485EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C69FED2A-079C-461E-9F1E-59E5363485EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
