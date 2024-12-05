@@ -8,10 +8,32 @@
         <CompilerGeneratedFilesOutputPath>Generated</CompilerGeneratedFilesOutputPath>
     </PropertyGroup>
     
+    <PropertyGroup>
+        <PackageId>Arcasharp.UserAgents</PackageId>
+        <Authors>Arcasharp</Authors>
+        <Description>Get an up-to-date list of top user agents</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <IncludeSymbols>true</IncludeSymbols>
+        <RepositoryUrl>https://github.com/Arcasharp/Arcasharp.UserAgents</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>Source Generator User Agent Arcasharp</PackageTags>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <Deterministic>true</Deterministic>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(CI)' == 'true'">
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="../README.md" Pack="true" PackagePath="/"/>
+    </ItemGroup>
+    
     <ItemGroup>
         <ProjectReference Include="..\Arcasharp.UserAgents.SourceGenerator\Arcasharp.UserAgents.SourceGenerator.csproj"
                           OutputItemType="Analyzer"
-                          ReferenceOutputAssembly="true" />
+                          ReferenceOutputAssembly="false" />
     </ItemGroup>
     
     <ItemGroup>

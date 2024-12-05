@@ -5,24 +5,7 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>true</ImplicitUsings>
         <LangVersion>Latest</LangVersion>
-    </PropertyGroup>
-    
-    <PropertyGroup>
-        <PackageId>Arcasharp.UserAgents</PackageId>
-        <Authors>Arcasharp</Authors>
-        <Description>Get an up-to-date list of top user agents</Description>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
-        <IncludeSymbols>true</IncludeSymbols>
-        <RepositoryUrl>https://github.com/Arcasharp/Arcasharp.UserAgents</RepositoryUrl>
-        <RepositoryType>git</RepositoryType>
-        <PackageTags>Source Generator Embed Arcasharp</PackageTags>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <Deterministic>true</Deterministic>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(CI)' == 'true'">
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <IsPackable>false</IsPackable>
     </PropertyGroup>
 
     <ItemGroup>
@@ -30,12 +13,4 @@
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.0.1" PrivateAssets="all"/>
     </ItemGroup>
 
-    <ItemGroup>
-        <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true"
-              PackagePath="analyzers/dotnet/cs" Visible="false"/>
-    </ItemGroup>
-
-    <ItemGroup>
-        <None Include="../README.md" Pack="true" PackagePath="/"/>
-    </ItemGroup>
 </Project>
