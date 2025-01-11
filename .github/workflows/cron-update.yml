@@ -1,0 +1,32 @@
+name: NuGet Push
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Every Monday at 1:00 UTC
+    - cron: '0 1 * * 1'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Commit
+        run: |
+          git config --local user.email ${{ secrets.GIT_EMAIL }}
+          git config --local user.name ${{ secrets.GIT_USERNAME }}
+          # Read last tag and increment patch version
+          export VERSION=$(git describe --tags --abbrev=0)
+          export NEW_VERSION=$(echo $VERSION | awk -F. '{OFS="."; $3=$3+1; print $0}')
+          git tag $NEW_VERSION
+          dotnet build
+          git add Generated/*
+          git diff-index --quiet HEAD || git commit -m "build(update): user agents" --no-verify
+          git push origin ${{ github.head_ref }}
+          git push origin $NEW_VERSION
+          
