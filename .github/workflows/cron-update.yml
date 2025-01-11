@@ -21,8 +21,9 @@ jobs:
           git config --local user.email ${{ secrets.GIT_EMAIL }}
           git config --local user.name ${{ secrets.GIT_USERNAME }}
           # Read last tag and increment patch version
-          export VERSION=$(git describe --tags --abbrev=0)
-          export NEW_VERSION=$(echo $VERSION | awk -F. '{OFS="."; $3=$3+1; print $0}')
+          echo Current version = $(git describe --tags --abbrev=0)
+          export NEW_VERSION=$(git describe --tags --abbrev=0 | awk -F. '{OFS="."; $3=$3+1; print $0}')
+          echo New version = $NEW_VERSION
           git tag $NEW_VERSION
           dotnet build
           git add Generated/*
