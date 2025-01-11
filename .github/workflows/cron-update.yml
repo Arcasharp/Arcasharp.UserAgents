@@ -22,7 +22,7 @@ jobs:
       - name: Commit
         run: |
           git config --local user.email ${{ secrets.GIT_EMAIL }}
-          git config --local user.name ${{ variables.GIT_USERNAME }}
+          git config --local user.name ${{ vars.GIT_USERNAME }}
           # Read last tag and increment patch version
           echo Current version = $(git describe --tags --abbrev=0)
           export NEW_VERSION=$(git describe --tags --abbrev=0 | awk -F. '{OFS="."; $3=$3+1; print $0}')
