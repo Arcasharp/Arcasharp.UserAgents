@@ -29,7 +29,12 @@ jobs:
           echo New version = $NEW_VERSION
           dotnet build
           git add Arcasharp.UserAgents/Generated/*
-          git diff-index --quiet HEAD || git commit -m "build(update): user agents" --no-verify
+          if [ git diff-index --quiet HEAD ]; then
+            echo "No changes"
+            exit 0
+          fi
+          echo "Changes detected"
+          git commit -m "build(update): user agents" --no-verify
           git tag $NEW_VERSION
           git push origin ${{ github.head_ref }}
           git push origin $NEW_VERSION
