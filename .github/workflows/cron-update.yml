@@ -20,6 +20,9 @@ jobs:
         with:
           dotnet-version: 8.0.x
       - name: Commit
+        env:
+          # Use a custom PAT to allow triggering other workflows
+          GITHUB_TOKEN: ${{ secrets.PAT }}
         run: |
           git config --local user.email ${{ secrets.GIT_EMAIL }}
           git config --local user.name ${{ vars.GIT_USERNAME }}
