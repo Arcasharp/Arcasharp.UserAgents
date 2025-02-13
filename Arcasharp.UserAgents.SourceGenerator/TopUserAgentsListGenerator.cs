@@ -1,6 +1,7 @@
 ﻿using System.Runtime.Serialization.Json;
 using System.Text;
 using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
 
 namespace Arcasharp.UserAgents.SourceGenerator;
 
@@ -53,17 +54,7 @@ public class TopUerAgentsListGenerator : IIncrementalGenerator
     /// </summary>
     private static string SanitizeUserAgent(string userAgent)
     {
-        var builder = new StringBuilder();
-        var bytes = Encoding.UTF8.GetBytes(userAgent);
-        builder.Append("Encoding.UTF8.GetString(new byte[] { ");
-        foreach (var @byte in bytes)
-        {
-            builder.AppendFormat("0x{0:X2}", @byte);
-            builder.Append(", ");
-        }
-        builder.Append("})");
-
-        return builder.ToString();
+        return SymbolDisplay.FormatLiteral(userAgent, quote: true);
     }
 
     private static string GenerateSource(string[] topUserAgents)
